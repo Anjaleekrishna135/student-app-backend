@@ -1,9 +1,9 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
-const { studentmodel } = require("./models/student")
-const app = express()
+const { studentmodel }=require("./models/student")
 
+const app=express()
 app.use(cors())
 app.use(express.json())
 
@@ -19,7 +19,8 @@ app.get("/contact", (req, res) => {
 
 app.post("/add", (req, res) => {
     let input = req.body
-    console.log(input)
+    let student=new studentmodel(input)
+    console.log(student)
     res.send("test")
 })
 
